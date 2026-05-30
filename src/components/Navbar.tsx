@@ -32,6 +32,31 @@ export default function Navbar({ onDownloadCV }: NavbarProps) {
     { label: 'Contact', href: '#contact' },
   ];
 
+  const handleNavClick = (e: React.MouseEvent<HTMLAnchorElement>, href: string) => {
+    e.preventDefault();
+    setIsOpen(false);
+
+    const targetId = href.replace('#', '');
+    if (targetId === '') {
+      window.scrollTo({
+        top: 0,
+        behavior: 'smooth'
+      });
+      return;
+    }
+
+    // Delay scroll slightly to allow React state to settle and the mobile drawer to close
+    setTimeout(() => {
+      const element = document.getElementById(targetId);
+      if (element) {
+        element.scrollIntoView({
+          behavior: 'smooth',
+          block: 'start'
+        });
+      }
+    }, 100);
+  };
+
   return (
     <nav
       id="main-nav"
@@ -44,6 +69,7 @@ export default function Navbar({ onDownloadCV }: NavbarProps) {
         <a
           id="nav-logo"
           href="#"
+          onClick={(e) => handleNavClick(e, '#')}
           className="text-2xl font-bold tracking-tighter text-[#dfe3e7] hover:text-[#adc6ff] transition-colors"
         >
           AS
@@ -56,6 +82,7 @@ export default function Navbar({ onDownloadCV }: NavbarProps) {
               id={`nav-item-${item.label.toLowerCase()}`}
               key={item.label}
               href={item.href}
+              onClick={(e) => handleNavClick(e, item.href)}
               className="text-sm font-medium text-[#c2c6d6] hover:text-[#dfe3e7] hover:bg-white/5 px-3 py-1.5 rounded-lg transition-all duration-200"
             >
               {item.label}
@@ -90,10 +117,10 @@ export default function Navbar({ onDownloadCV }: NavbarProps) {
         {isOpen && (
           <motion.div
             id="nav-mobile-drawer"
-            initial={{ opacity: 0, height: 0 }}
-            animate={{ opacity: 1, height: 'auto' }}
-            exit={{ opacity: 0, height: 0 }}
-            transition={{ duration: 0.25, ease: 'easeInOut' }}
+            initial={{ opacity: 0, y: -15 }}
+            animate={{ opacity: 1, y: 0 }}
+            exit={{ opacity: 0, y: -15 }}
+            transition={{ duration: 0.15, ease: 'easeOut' }}
             className="md:hidden border-b border-white/10 bg-[#0f1417]/95 backdrop-blur-xl px-6 py-6 absolute w-full left-0 top-[100%]"
           >
             <div className="flex flex-col space-y-4">
@@ -102,7 +129,7 @@ export default function Navbar({ onDownloadCV }: NavbarProps) {
                   id={`nav-mobile-item-${item.label.toLowerCase()}`}
                   key={item.label}
                   href={item.href}
-                  onClick={() => setIsOpen(false)}
+                  onClick={(e) => handleNavClick(e, item.href)}
                   initial={{ opacity: 0, x: -10 }}
                   animate={{ opacity: 1, x: 0 }}
                   transition={{ delay: index * 0.05 }}
