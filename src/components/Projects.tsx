@@ -18,16 +18,34 @@ export default function Projects() {
     const [activeFilter, setActiveFilter] = useState<'All' | 'Full Stack' | 'Frontend' | 'Backend' | 'Desktop App' | 'Graphics'>('All');
 
   const projects: Project[] = [
-    {
+  {
   id: 'copyright',
   title: 'Instagram Copyright Checker',
   category: 'Full Stack',
   description: 'A comprehensive online copyright checker built with Next.js, Express.js, and MongoDB. Features Instagram Reel copyright checking, ARC Cloud integration, and PayPal payments.',
   tags: ['ExpressJs', 'RapidAPI', 'Next.js', 'Tailwind CSS', 'Paypal', 'ARC Cloud'],
   icon: 'Lock',
-  imageUrl: 'https://images.unsplash.com/photo-1555066931-4365d14bab8c?auto=format&fit=crop&w=800&q=80',
+  imageUrl: '/copyright.png',
   githubUrl: '',
   demoUrl: 'https://copyrightchecker.de',
+},
+  {
+  id: 'islacar',
+  title: 'Isla Car Fleet & Rental Management Platform',
+  category: 'Full Stack',
+  description: 'Built a complete fleet and rental management solution for internal business operations. Developed scalable backend APIs and a Next.js Admin dashboard to manage vehicles, rental bookings, employee activities, customer records, payments, and operational reporting from a centralized system.',
+  tags: [
+    'Next.js',
+    'Node.js',
+    'Express.js',
+    'MongoDB',
+    'REST API',
+    'Tailwind CSS'
+  ],
+  icon: 'Car',
+  imageUrl: '/islacar.png',
+  githubUrl: '',
+  demoUrl: 'https://play.google.com/store/apps/details?id=com.isla.car.employee_app',
 },
 {
   id: 'ems-frontend',
