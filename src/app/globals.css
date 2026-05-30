@@ -1,0 +1,65 @@
+@import url('https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&family=JetBrains+Mono:wght@400;500&display=swap');
+@import "tailwindcss";
+
+@theme {
+  --font-sans: "Inter", ui-sans-serif, system-ui, sans-serif;
+  --font-mono: "JetBrains Mono", ui-monospace, SFMono-Regular, monospace;
+}
+
+body {
+  background-color: #0F172A;
+  color: #dfe3e7;
+  font-family: var(--font-sans);
+}
+
+.surface-1 {
+  background-color: #1E293B;
+  border: 1px solid rgba(255, 255, 255, 0.1);
+}
+
+.glass-nav {
+  background-color: rgba(15, 23, 42, 0.8);
+  backdrop-filter: blur(12px);
+  border-bottom: 1px solid rgba(255, 255, 255, 0.1);
+}
+
+.card-hover {
+  transition: all 0.2s ease-in-out;
+  border-top-width: 2px;
+  border-top-color: transparent;
+}
+
+.card-hover:hover {
+  border-top-color: #3B82F6;
+  box-shadow: 0 10px 40px -10px rgba(59, 130, 246, 0.1);
+  transform: translateY(-4px);
+}
+
+.btn-primary {
+  background-color: #3B82F6;
+  color: #F1F5F9;
+}
+
+.btn-primary:hover {
+  background-color: #2563EB;
+  transform: scale(1.02);
+  box-shadow: 0 0 20px rgba(59, 130, 246, 0.2);
+}
+
+.btn-ghost {
+  border: 1px solid #1E293B;
+  background-color: transparent;
+}
+
+.btn-ghost:hover {
+  background-color: #1E293B;
+}
+
+.hide-scrollbar::-webkit-scrollbar {
+  display: none;
+}
+
+.hide-scrollbar {
+  -ms-overflow-style: none;
+  scrollbar-width: none;
+}

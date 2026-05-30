@@ -1,0 +1,3 @@
+module.exports=[27572,a=>{"use strict";var b=a.i(62260);a.s(["default",0,function({children:a}){return(0,b.jsx)("html",{lang:"en",className:"scroll-smooth",children:(0,b.jsx)("body",{className:"antialiased",children:a})})},"metadata",0,{title:"Md Abdullah Shishir - Full Stack Developer",description:"Md Abdullah Shishir is a Full Stack Developer specializing in scalable backend systems and responsive frontend architectures."}])},50645,a=>{a.n(a.i(27572))}];
+
+//# sourceMappingURL=src_app_layout_tsx_0fhx__n._.js.map
