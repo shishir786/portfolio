@@ -1,5 +1,5 @@
 export async function downloadCV() {
-  const pdfUrl = '/resume.pdf';
+  const pdfUrl = '/abdullah-shishir-resume.pdf';
 
   try {
     // Check if the PDF file exists in the public directory
@@ -30,7 +30,7 @@ Expected Graduation: 2025
 -----------------------------------------------------------
 SUMMARY
 -----------------------------------------------------------
-Detail-oriented software engineer specializing in scalable 
+Detail-oriented software engineer specializing in scalable
 backend systems and responsive frontend architectures. Focused
 on delivering performant, maintainable, and robust code.
 

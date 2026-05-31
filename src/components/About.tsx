@@ -27,10 +27,10 @@ export default function About() {
           </div>
           <div className="space-y-4 text-base text-[#c2c6d6] leading-relaxed">
             <p>
-              I'm a Full Stack Developer currently working as a Trainee at Sparktech Agency.
-              Currently pursuing my B.Sc. in CSE at American International University-Bangladesh
+              I'm a Full Stack Developer currently working as a Jr. Full Stack Developer at Sparktech Agency.
+              Completed my Bachelor of Science in Computer Science and Engineering at American International University-Bangladesh
               (AIUB) with expected graduation in 2025. I specialize in building scalable web
-              applciations using modern technologies like React, Node.js, NestJS, and PostgreSQL.
+              applications using modern technologies like React/Next.js, Node.js/Express.js, NestJS, and PostgreSQL/MongoDB.
             </p>
             <p>
               My goal is to craft high-quality, user-friendly solutions that solve real-world problems.

@@ -1,4 +1,5 @@
-import { Resend } from 'resend';
+import FormData from 'form-data';
+import Mailgun from 'mailgun.js';
 import { NextRequest, NextResponse } from 'next/server';
 
 export async function POST(req: NextRequest) {
@@ -12,19 +13,22 @@ export async function POST(req: NextRequest) {
       );
     }
 
-    const apiKey = process.env.RESEND_API_KEY;
-    if (!apiKey) {
+    const apiKey = process.env.MAILGUN_API_KEY;
+    const domain = process.env.MAILGUN_DOMAIN;
+
+    if (!apiKey || !domain) {
       return NextResponse.json(
-        { error: 'RESEND_API_KEY environment variable is not configured. Please add it via the Settings/Secrets panel.' },
+        { error: 'Mailgun configuration is missing. Please set MAILGUN_API_KEY and MAILGUN_DOMAIN environment variables.' },
         { status: 501 }
       );
     }
 
-    const resend = new Resend(apiKey);
+    const mailgun = new Mailgun(FormData);
+    const client = mailgun.client({ username: 'api', key: apiKey });
 
-    const data = await resend.emails.send({
-      from: 'onboarding@resend.dev',
-      to: 'shishirds786@gmail.com',
+    const messageData = {
+      from: `Portfolio Contact <noreply@${domain}>`,
+      to: 'abdullahshishir786@gmail.com',
       subject: `New Portfolio Message from ${name}`,
       html: `
         <div style="font-family: system-ui, -apple-system, sans-serif; max-width: 600px; margin: 0 auto; padding: 24px; border: 1px solid #e2e8f0; border-radius: 12px; background-color: #ffffff; color: #1e293b;">
@@ -40,15 +44,14 @@ export async function POST(req: NextRequest) {
           </footer>
         </div>
       `,
-    });
+      'h:Reply-To': email,
+    };
 
-    if (data.error) {
-      return NextResponse.json({ error: data.error.message }, { status: 500 });
-    }
+    const data = await client.messages.create(domain, messageData);
 
-    return NextResponse.json({ success: true, id: data.data?.id });
+    return NextResponse.json({ success: true, id: data.id });
   } catch (error: any) {
-    console.error('Error sending email through Resend:', error);
+    console.error('Error sending email through Mailgun:', error);
     return NextResponse.json(
       { error: error.message || 'Failed to send message.' },
       { status: 500 }
