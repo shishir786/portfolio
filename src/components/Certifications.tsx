@@ -1,6 +1,6 @@
 "use client";
 
-import { Award, GraduationCap, ShieldCheck, Check, ArrowUpRight } from 'lucide-react';
+import { LuAward, LuGraduationCap, LuShieldCheck, LuCheck, LuArrowUpRight } from 'react-icons/lu';
 import { motion } from 'motion/react';
 import { Certification } from '../types';
 
@@ -43,15 +43,15 @@ const certifications: Certification[] = [
   const getIcon = (iconName: string) => {
     switch (iconName) {
       case 'Award':
-        return <Award className="w-6 h-6 text-[#3B82F6] group-hover:scale-110 transition-transform duration-300" />;
+        return <LuAward className="w-6 h-6 text-[#3B82F6] group-hover:scale-110 transition-transform duration-300" />;
       case 'GraduationCap':
-        return <GraduationCap className="w-6 h-6 text-[#3B82F6] group-hover:scale-110 transition-transform duration-300" />;
+        return <LuGraduationCap className="w-6 h-6 text-[#3B82F6] group-hover:scale-110 transition-transform duration-300" />;
       case 'Check':
-        return <Check className="w-6 h-6 text-[#3B82F6] group-hover:scale-110 transition-transform duration-300" />;
+        return <LuCheck className="w-6 h-6 text-[#3B82F6] group-hover:scale-110 transition-transform duration-300" />;
       case 'ShieldCheck':
-        return <ShieldCheck className="w-6 h-6 text-[#3B82F6] group-hover:scale-110 transition-transform duration-300" />;
+        return <LuShieldCheck className="w-6 h-6 text-[#3B82F6] group-hover:scale-110 transition-transform duration-300" />;
       default:
-        return <Award className="w-6 h-6 text-[#3B82F6]" />;
+        return <LuAward className="w-6 h-6 text-[#3B82F6]" />;
     }
   };
 
@@ -102,7 +102,7 @@ const certifications: Certification[] = [
                   </div>
 
                   {/* Arrow accent icon just to elevate UI polish */}
-                  <ArrowUpRight className="w-4 h-4 text-slate-600 group-hover:text-[#3B82F6] transition-colors shrink-0 mt-1" />
+                  <LuArrowUpRight className="w-4 h-4 text-slate-600 group-hover:text-[#3B82F6] transition-colors shrink-0 mt-1" />
                 </div>
 
                 <p className="text-sm text-[#c2c6d6] leading-relaxed font-normal">

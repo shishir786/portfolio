@@ -20,7 +20,7 @@ export async function downloadCV() {
 
   // Fallback to beautiful text resume dynamic download
   const content = `===========================================================
-MD ABDULLAH SHISHIR - FULL STACK DEVELOPER
+Md. Abdullah Shishir - FULL STACK DEVELOPER
 ===========================================================
 Email: abdullahshishir786@gmail.com
 Location: Dhaka, Bangladesh
@@ -45,10 +45,15 @@ and data structures.
 -----------------------------------------------------------
 PROFESSIONAL EXPERIENCE
 -----------------------------------------------------------
-Trainee Full Stack Developer (Present)
+Jr. Full Stack Engineer (June 2026 - Present)
+Startup Inc.
+Designing and building scalable, performant web applications
+using React, Next.js, and Node.js.
+
+Jr. Full Stack Developer (July 2025 - May 2026)
 Sparktech Agency
-Developing responsive frontends and backend rest services
-utilizing modern React, Node.js, and Express stack.
+Developed responsive client websites and custom systems
+using modern React, Node.js, and Express stack.
 
 -----------------------------------------------------------
 TECHNICAL EXPERTISE

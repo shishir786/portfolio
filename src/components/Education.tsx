@@ -1,7 +1,7 @@
 "use client";
 
 import { motion } from 'motion/react';
-import { GraduationCap } from 'lucide-react';
+import { LuGraduationCap } from 'react-icons/lu';
 
 export default function Education() {
   return (
@@ -34,7 +34,7 @@ export default function Education() {
               </span>
               <div className="flex flex-col sm:flex-row sm:items-center justify-between gap-1">
                 <h3 className="text-xl font-bold text-[#dfe3e7] flex items-center gap-2">
-                  <GraduationCap className="w-5 h-5 text-[#3B82F6]" />
+                  <LuGraduationCap className="w-5 h-5 text-[#3B82F6]" />
                   Bachelor of Science in Computer Science & Engineering
                 </h3>
                 <span className="text-sm font-medium text-[#c2c6d6] sm:text-right bg-white/5 px-3 py-1 rounded-full border border-white/5 w-fit">
@@ -72,7 +72,7 @@ export default function Education() {
               </span>
               <div className="flex flex-col sm:flex-row sm:items-center justify-between gap-1">
                 <h3 className="text-xl font-bold text-[#dfe3e7] flex items-center gap-2">
-                  <GraduationCap className="w-5 h-5 text-[#3B82F6]" />
+                  <LuGraduationCap className="w-5 h-5 text-[#3B82F6]" />
                   Higher Secondary Certificate (HSC)
                 </h3>
                 <span className="text-sm font-medium text-[#c2c6d6] sm:text-right bg-white/5 px-3 py-1 rounded-full border border-white/5 w-fit">

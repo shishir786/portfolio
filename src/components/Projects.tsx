@@ -3,15 +3,14 @@
 import { useState } from 'react';
 import { motion, AnimatePresence } from 'motion/react';
 import {
-  ExternalLink,
-  Lock,
-  ShoppingCart,
-  Layout,
-  CheckCircle2,
-  Globe,
-  BarChart2,
-  Github,
-} from 'lucide-react';
+  LuExternalLink,
+  LuLock,
+  LuShoppingCart,
+  LuLayoutGrid,
+  LuGlobe,
+  LuGithub,
+} from 'react-icons/lu';
+import { FiCheckCircle, FiBarChart2 } from 'react-icons/fi';
 import { Project } from '../types';
 
 export default function Projects() {
@@ -149,19 +148,19 @@ export default function Projects() {
   const getProjectIcon = (iconName: string) => {
     switch (iconName) {
       case 'Lock':
-        return <Lock className="w-5 h-5 text-[#3B82F6]" />;
+        return <LuLock className="w-5 h-5 text-[#3B82F6]" />;
       case 'ShoppingCart':
-        return <ShoppingCart className="w-5 h-5 text-[#3B82F6]" />;
+        return <LuShoppingCart className="w-5 h-5 text-[#3B82F6]" />;
       case 'Layout':
-        return <Layout className="w-5 h-5 text-[#3B82F6]" />;
+        return <LuLayoutGrid className="w-5 h-5 text-[#3B82F6]" />;
       case 'CheckCircle2':
-        return <CheckCircle2 className="w-5 h-5 text-[#3B82F6]" />;
+        return <FiCheckCircle className="w-5 h-5 text-[#3B82F6]" />;
       case 'Globe':
-        return <Globe className="w-5 h-5 text-[#3B82F6]" />;
+        return <LuGlobe className="w-5 h-5 text-[#3B82F6]" />;
       case 'BarChart2':
-        return <BarChart2 className="w-5 h-5 text-[#3B82F6]" />;
+        return <FiBarChart2 className="w-5 h-5 text-[#3B82F6]" />;
       default:
-        return <Layout className="w-5 h-5 text-[#3B82F6]" />;
+        return <LuLayoutGrid className="w-5 h-5 text-[#3B82F6]" />;
     }
   };
 
@@ -248,7 +247,7 @@ export default function Projects() {
                         className="text-[#3B82F6] hover:text-[#3B82F6]/80 hover:scale-105 transition-all duration-200 p-1.5 bg-white/5 hover:bg-white/10 rounded-lg border border-white/5"
                         title="GitHub Repository"
                       >
-                        <Github className="w-3.5 h-3.5" />
+                        <LuGithub className="w-3.5 h-3.5" />
                       </a>
                     )}
                     {project.demoUrl && (
@@ -260,7 +259,7 @@ export default function Projects() {
                         className="text-[#3B82F6] hover:text-[#3B82F6]/80 hover:scale-105 transition-all duration-200 p-1.5 bg-white/5 hover:bg-white/10 rounded-lg border border-white/5"
                         title="Live Demo"
                       >
-                        <ExternalLink className="w-3.5 h-3.5" />
+                        <LuExternalLink className="w-3.5 h-3.5" />
                       </a>
                     )}
                   </div>
@@ -296,7 +295,7 @@ export default function Projects() {
           className="btn-ghost font-medium text-sm px-6 py-3.5 rounded-full inline-flex items-center gap-2 text-[#dfe3e7] transition-all duration-200 cursor-pointer"
         >
           View GitHub
-          <Github className="w-4 h-4 text-[#adc6ff]" />
+          <LuGithub className="w-4 h-4 text-[#adc6ff]" />
         </a>
       </div>
     </section>

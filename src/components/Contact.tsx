@@ -1,7 +1,8 @@
 "use client";
 
 import React, { useState } from 'react';
-import { Mail, MapPin, Send, CheckCircle2, Code2, Briefcase, Share2 } from 'lucide-react';
+import { LuMail, LuMapPin, LuSend, LuGithub, LuLinkedin, LuShare2 } from 'react-icons/lu';
+import { FiCheckCircle } from 'react-icons/fi';
 import { motion, AnimatePresence } from 'motion/react';
 
 export default function Contact() {
@@ -82,7 +83,7 @@ export default function Contact() {
               className="flex items-center gap-4 text-[#c2c6d6] hover:text-[#adc6ff] transition-all duration-200 group w-fit"
             >
               <div className="w-12 h-12 rounded-full bg-white/5 group-hover:bg-[#3B82F6]/10 flex items-center justify-center text-[#3B82F6] border border-white/5 transition-all">
-                <Mail className="w-5 h-5" />
+                <LuMail className="w-5 h-5" />
               </div>
               <div>
                 <p className="text-xs text-[#c2c6d6]/60 font-semibold uppercase tracking-wider">Email</p>
@@ -92,7 +93,7 @@ export default function Contact() {
 
             <div className="flex items-center gap-4 text-[#c2c6d6] group">
               <div className="w-12 h-12 rounded-full bg-white/5 flex items-center justify-center text-[#3B82F6] border border-white/5 pointer-events-none">
-                <MapPin className="w-5 h-5" />
+                <LuMapPin className="w-5 h-5" />
               </div>
               <div>
                 <p className="text-xs text-[#c2c6d6]/60 font-semibold uppercase tracking-wider">Location</p>
@@ -110,7 +111,7 @@ export default function Contact() {
               className="w-11 h-11 rounded-full bg-white/5 hover:bg-[#3B82F6]/10 border border-white/10 hover:border-[#3B82F6]/30 flex items-center justify-center text-[#dfe3e7] hover:text-white transition-all"
               title="GitHub"
             >
-              <Code2 className="w-4 h-4" />
+              <LuGithub className="w-4 h-4" />
             </a>
             <a
               id="contact-social-linkedin"
@@ -120,14 +121,14 @@ export default function Contact() {
               className="w-11 h-11 rounded-full bg-white/5 hover:bg-[#3B82F6]/10 border border-white/10 hover:border-[#3B82F6]/30 flex items-center justify-center text-[#dfe3e7] hover:text-white transition-all"
               title="LinkedIn"
             >
-              <Briefcase className="w-4 h-4" />
+              <LuLinkedin className="w-4 h-4" />
             </a>
             <button
               id="contact-btn-share"
               onClick={() => {
                 if (navigator.share) {
                   navigator.share({
-                    title: 'Md Abdullah Shishir - Portfolio',
+                    title: 'Md. Abdullah Shishir - Portfolio',
                     url: window.location.href,
                   });
                 } else {
@@ -138,7 +139,7 @@ export default function Contact() {
               className="w-11 h-11 rounded-full bg-white/5 hover:bg-[#3B82F6]/10 border border-white/10 hover:border-[#3B82F6]/30 flex items-center justify-center text-[#dfe3e7] hover:text-white transition-all cursor-pointer"
               title="Share Portfolio"
             >
-              <Share2 className="w-4 h-4" />
+              <LuShare2 className="w-4 h-4" />
             </button>
           </div>
         </div>
@@ -222,7 +223,7 @@ export default function Contact() {
                   ) : (
                     <>
                       Send Message
-                      <Send className="w-4 h-4 text-white" />
+                      <LuSend className="w-4 h-4 text-white" />
                     </>
                   )}
                 </button>
@@ -236,7 +237,7 @@ export default function Contact() {
                 className="flex flex-col items-center justify-center py-10 text-center space-y-4"
               >
                 <div className="w-16 h-16 rounded-full bg-[#3B82F6]/10 border border-[#3B82F6]/20 flex items-center justify-center text-[#3B82F6] mb-2">
-                  <CheckCircle2 className="w-8 h-8" />
+                  <FiCheckCircle className="w-8 h-8" />
                 </div>
                 <h3 className="text-xl font-bold text-[#dfe3e7] tracking-tight">Message Received!</h3>
                 <p className="text-sm text-[#c2c6d6] max-w-sm">

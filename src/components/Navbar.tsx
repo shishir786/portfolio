@@ -1,7 +1,7 @@
 "use client";
 
 import { useState, useEffect } from 'react';
-import { Menu, X, Download } from 'lucide-react';
+import { LuMenu, LuX, LuDownload } from 'react-icons/lu';
 import { motion, AnimatePresence } from 'motion/react';
 
 interface NavbarProps {
@@ -75,8 +75,8 @@ export default function Navbar({ onDownloadCV }: NavbarProps) {
           AS
         </a>
 
-        {/* Desktop Links */}
-        <div className="hidden md:flex items-center space-x-8">
+        {/* Right Nav Options Group */}
+        <div className="hidden md:flex items-center space-x-8 ml-auto mr-8">
           {navItems.map((item) => (
             <a
               id={`nav-item-${item.label.toLowerCase()}`}
@@ -98,7 +98,7 @@ export default function Navbar({ onDownloadCV }: NavbarProps) {
             className="btn-ghost text-sm font-medium px-5 py-2.5 rounded-full flex items-center gap-2 text-[#dfe3e7] transition-all duration-200 cursor-pointer"
           >
             Download CV
-            <Download className="w-4 h-4 text-[#adc6ff]" />
+            <LuDownload className="w-4 h-4 text-[#adc6ff]" />
           </button>
         </div>
 
@@ -108,7 +108,7 @@ export default function Navbar({ onDownloadCV }: NavbarProps) {
           onClick={() => setIsOpen(!isOpen)}
           className="md:hidden p-2 text-[#dfe3e7] hover:text-[#adc6ff] focus:outline-none cursor-pointer"
         >
-          {isOpen ? <X className="w-6 h-6" /> : <Menu className="w-6 h-6" />}
+          {isOpen ? <LuX className="w-6 h-6" /> : <LuMenu className="w-6 h-6" />}
         </button>
       </div>
 
@@ -149,7 +149,7 @@ export default function Navbar({ onDownloadCV }: NavbarProps) {
                 className="w-full mt-2 btn-primary py-3 rounded-full flex items-center justify-center gap-2 font-medium cursor-pointer"
               >
                 Download CV
-                <Download className="w-4 h-4 text-white" />
+                <LuDownload className="w-4 h-4 text-white" />
               </motion.button>
             </div>
           </motion.div>

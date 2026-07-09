@@ -27,7 +27,7 @@ export default function About() {
           </div>
           <div className="space-y-4 text-base text-[#c2c6d6] leading-relaxed">
             <p>
-              I'm a Full Stack Developer currently working as a Jr. Full Stack Developer at Sparktech Agency.
+              I'm a Full Stack Developer currently working as a Jr. Full Stack Engineer at Startup Inc.
               Completed my Bachelor of Science in Computer Science and Engineering at American International University-Bangladesh
               (AIUB) with expected graduation in 2025. I specialize in building scalable web
               applications using modern technologies like React/Next.js, Node.js/Express.js, NestJS, and PostgreSQL/MongoDB.

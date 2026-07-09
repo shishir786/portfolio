@@ -1,7 +1,7 @@
 "use client";
 
 import { motion } from 'motion/react';
-import { Monitor, Server, Database, Code2, Wrench, GraduationCap } from 'lucide-react';
+import { LuMonitor, LuServer, LuDatabase, LuCode, LuWrench, LuGraduationCap } from 'react-icons/lu';
 import { SkillCategory } from '../types';
 
 export default function Expertise() {
@@ -41,19 +41,19 @@ export default function Expertise() {
   const getIcon = (iconName: string) => {
     switch (iconName) {
       case 'Code2':
-        return <Code2 className="w-5 h-5 text-[#3B82F6]" />;
+        return <LuCode className="w-5 h-5 text-[#3B82F6]" />;
       case 'Monitor':
-        return <Monitor className="w-5 h-5 text-[#3B82F6]" />;
+        return <LuMonitor className="w-5 h-5 text-[#3B82F6]" />;
       case 'Server':
-        return <Server className="w-5 h-5 text-[#3B82F6]" />;
+        return <LuServer className="w-5 h-5 text-[#3B82F6]" />;
       case 'Database':
-        return <Database className="w-5 h-5 text-[#3B82F6]" />;
+        return <LuDatabase className="w-5 h-5 text-[#3B82F6]" />;
       case 'Wrench':
-        return <Wrench className="w-5 h-5 text-[#3B82F6]" />;
+        return <LuWrench className="w-5 h-5 text-[#3B82F6]" />;
       case 'GraduationCap':
-        return <GraduationCap className="w-5 h-5 text-[#3B82F6]" />;
+        return <LuGraduationCap className="w-5 h-5 text-[#3B82F6]" />;
       default:
-        return <Code2 className="w-5 h-5 text-[#3B82F6]" />;
+        return <LuCode className="w-5 h-5 text-[#3B82F6]" />;
     }
   };
 

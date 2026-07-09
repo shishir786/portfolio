@@ -1,7 +1,7 @@
 "use client";
 
 import { useState, useEffect } from 'react';
-import { ArrowRight, Download, Code2, Briefcase, Mail } from 'lucide-react';
+import { LuArrowRight, LuDownload, LuGithub, LuLinkedin, LuMail } from 'react-icons/lu';
 import { motion } from 'motion/react';
 
 interface HeroProps {
@@ -68,7 +68,7 @@ export default function Hero({ onDownloadCV }: HeroProps) {
         <div className="space-y-4">
           <p className="text-lg text-[#c2c6d6]">Hello, I'm 👋</p>
           <h1 className="text-4xl sm:text-5xl lg:text-6xl font-bold tracking-tight text-[#dfe3e7]">
-            Md Abdullah Shishir
+            Md. Abdullah Shishir
           </h1>
           <div className="h-10 md:h-14 flex items-center">
             <p className="text-2xl sm:text-3xl font-mono text-[#adc6ff] font-semibold">
@@ -89,7 +89,7 @@ export default function Hero({ onDownloadCV }: HeroProps) {
             className="btn-primary font-medium text-sm px-6 py-3.5 rounded-full flex items-center gap-2 transition-all duration-300 transform hover:scale-[1.02] cursor-pointer"
           >
             View My Work
-            <ArrowRight className="w-4 h-4 text-white" />
+            <LuArrowRight className="w-4 h-4 text-white" />
           </a>
           <button
             id="hero-btn-download"
@@ -97,7 +97,7 @@ export default function Hero({ onDownloadCV }: HeroProps) {
             className="btn-ghost font-medium text-sm px-6 py-3.5 rounded-full flex items-center gap-2 text-[#dfe3e7] transition-all duration-300 cursor-pointer"
           >
             Download CV
-            <Download className="w-4 h-4 text-[#adc6ff]" />
+            <LuDownload className="w-4 h-4 text-[#adc6ff]" />
           </button>
         </div>
 
@@ -111,7 +111,7 @@ export default function Hero({ onDownloadCV }: HeroProps) {
             className="hover:text-[#adc6ff] transition-all duration-200 p-2 hover:bg-white/5 rounded-full"
             title="GitHub"
           >
-            <Code2 className="w-5 h-5" />
+            <LuGithub className="w-5 h-5" />
           </a>
           <a
             id="hero-social-linkedin"
@@ -121,7 +121,7 @@ export default function Hero({ onDownloadCV }: HeroProps) {
             className="hover:text-[#adc6ff] transition-all duration-200 p-2 hover:bg-white/5 rounded-full"
             title="LinkedIn"
           >
-            <Briefcase className="w-5 h-5" />
+            <LuLinkedin className="w-5 h-5" />
           </a>
           <a
             id="hero-social-email"
@@ -129,7 +129,7 @@ export default function Hero({ onDownloadCV }: HeroProps) {
             className="hover:text-[#adc6ff] transition-all duration-200 p-2 hover:bg-white/5 rounded-full"
             title="Email"
           >
-            <Mail className="w-5 h-5" />
+            <LuMail className="w-5 h-5" />
           </a>
         </div>
       </motion.div>
@@ -146,7 +146,7 @@ export default function Hero({ onDownloadCV }: HeroProps) {
           <div className="w-full h-full rounded-full overflow-hidden bg-slate-900 border-2 border-white/5">
             <img
               id="hero-profile-image"
-              alt="Md Abdullah Shishir portrait"
+              alt="Md. Abdullah Shishir portrait"
               className="w-full h-full object-cover filter grayscale hover:grayscale-0 transition-all duration-500"
               referrerPolicy="no-referrer"
               src="/profile.jpg"
