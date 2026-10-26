@@ -11,6 +11,8 @@ export interface Project {
   featured?: boolean;
   highlights?: string[];
   architecture?: string;
+  problem?: string;
+  solution?: string;
 }
 
 export interface Certification {

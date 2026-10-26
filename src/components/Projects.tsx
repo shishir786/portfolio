@@ -39,17 +39,21 @@ export default function Projects() {
       title: 'Instagram Copyright Checker Platform',
       category: 'Full Stack',
       featured: true,
-      description: 'An online copyright and licensing verification SaaS for digital creators. Features Instagram Reel audio fingerprint extraction via RapidAPI, ARC Cloud music rights verification, and automated PayPal payment flows.',
-      tags: ['Next.js', 'Express.js', 'RapidAPI', 'ARC Cloud', 'PayPal API', 'MongoDB'],
+      description: 'An automated scanning platform built from the ground up to protect content creators, agencies, and businesses from strict German copyright penalties (Abmahnungen) by identifying unauthorized music in social media videos without requiring account passwords.',
+      tags: ['Next.js', 'TypeScript', 'Express.js', 'MongoDB', 'Redis', 'BullMQ', 'PayPal', 'Stripe', 'React (Vite)'],
       icon: 'ShieldAlert',
       imageUrl: '/copyright.png',
       demoUrl: 'https://copyrightchecker.de',
-      architecture: 'Microservices with Express audio processing worker, Next.js frontend, and asynchronous payment webhooks.',
+      problem: 'Content creators, agencies, and businesses in Germany face strict copyright laws, leading to severe financial penalties and warning letters (Abmahnungen) for using unauthorized music in social media videos. Manually auditing years of historical content to find these risky videos is an incredibly tedious process. Furthermore, many third-party tools require handing over sensitive account passwords, creating major security risks.',
+      solution: 'To address this specific issue, a comprehensive, automated scanning platform was built from the ground up to maintain legal compliance without the hassle.',
       highlights: [
-        'Automated media fingerprinting via ARC Cloud API',
-        'Secure PayPal checkout integration for instant licensing audits',
-        'Responsive creator dashboard with instant pass/flag verdict reports',
+        'No Login Required: Complete account scanning is executed simply by pasting a public Instagram or TikTok profile link, ensuring account security is never compromised.',
+        'Actionable Documentation: The platform generates a structured analysis highlighting exactly which videos carry potential music copyright risks.',
+        'Clear Deletion Directives: Users receive direct links and clear suggestions for the flagged content, allowing for immediate deletion and drastically reducing manual review time.',
+        'Bilingual Support: The platform is fully accessible in two languages (German and English) to seamlessly serve both local creators and international teams.',
+        'Seamless Payments: Secure and flexible checkout infrastructure was integrated into the platform using PayPal and Stripe.',
       ],
+      architecture: 'Frontend: Next.js (TypeScript) | Admin Dashboard: React (Vite) | Backend: Express.js (TypeScript) | Database & Caching: MongoDB and Redis for high-speed data retrieval and maintaining job queues with BullMQ',
     },
     {
       id: 'islacar',
@@ -69,27 +73,13 @@ export default function Projects() {
       ],
     },
     {
-      id: 'ems-backend-nest',
-      title: 'Enterprise Employee Management Backend',
-      category: 'Backend',
-      description: 'High-performance enterprise backend built with NestJS and PostgreSQL. Implements JWT authentication, role-based access control (RBAC), database transaction isolation, and complete CRUD operations.',
-      tags: ['NestJS', 'PostgreSQL', 'TypeORM', 'JWT Auth', 'TypeScript', 'Docker'],
-      icon: 'Server',
-      githubUrl: 'https://github.com/shishir786/employee-management-system-Nest-Js.git',
-      architecture: 'Layered architecture (Controllers, Services, Repositories) with TypeORM entities and PostgreSQL indices.',
-      highlights: [
-        'Enforced granular role permissions (Admin, Manager, Employee)',
-        'Class-validator request sanitization and global exception filters',
-        'Optimized query execution plans with TypeORM query builders',
-      ],
-    },
-    {
       id: 'ems-frontend',
       title: 'Enterprise Employee Portal Frontend',
       category: 'Frontend',
       description: 'Modern administrative dashboard built with Next.js App Router and Tailwind CSS. Features real-time state management, employee directory with multi-column filtering, and role-guarded routes.',
       tags: ['Next.js', 'Tailwind CSS', 'TypeScript', 'REST API', 'Responsive UI'],
       icon: 'Monitor',
+      imageUrl: 'https://images.unsplash.com/photo-1461749280684-dccba630e2f6?auto=format&fit=crop&w=800&q=80',
       githubUrl: 'https://github.com/shishir786/EMS-frontend-Next-Js.git',
       demoUrl: 'https://ems-next-js.vercel.app/',
       architecture: 'Client-side cache synchronization with server-rendered layouts and optimistic UI mutations.',
@@ -100,12 +90,29 @@ export default function Projects() {
       ],
     },
     {
+      id: 'ems-backend-nest',
+      title: 'Enterprise Employee Management Backend',
+      category: 'Backend',
+      description: 'High-performance enterprise backend built with NestJS and PostgreSQL. Implements JWT authentication, role-based access control (RBAC), database transaction isolation, and complete CRUD operations.',
+      tags: ['NestJS', 'PostgreSQL', 'TypeORM', 'JWT Auth', 'TypeScript', 'Docker'],
+      icon: 'Server',
+      imageUrl: 'https://images.unsplash.com/photo-1516321318423-f06f85e504b3?auto=format&fit=crop&w=800&q=80',
+      githubUrl: 'https://github.com/shishir786/employee-management-system-Nest-Js.git',
+      architecture: 'Layered architecture (Controllers, Services, Repositories) with TypeORM entities and PostgreSQL indices.',
+      highlights: [
+        'Enforced granular role permissions (Admin, Manager, Employee)',
+        'Class-validator request sanitization and global exception filters',
+        'Optimized query execution plans with TypeORM query builders',
+      ],
+    },
+    {
       id: 'ems-backend-spring',
       title: 'Java Spring Boot Enterprise Microservice',
       category: 'Backend',
       description: 'Robust Java enterprise backend utilizing Spring Boot 3 and PostgreSQL. Features Spring Security with JWT filters, JDBC connection pooling, Hibernate ORM mappings, and RESTful web endpoints.',
       tags: ['Spring Boot', 'Java 17', 'PostgreSQL', 'Spring Security', 'Maven'],
       icon: 'Database',
+      imageUrl: 'https://images.unsplash.com/photo-1555949963-aa79dcee981c?auto=format&fit=crop&w=800&q=80',
       githubUrl: 'https://github.com/shishir786/employee-management-system-spring-boot.git',
       architecture: 'Spring MVC architectural pattern with JPA/Hibernate data repositories and Bean validation.',
       highlights: [
@@ -121,6 +128,7 @@ export default function Projects() {
       description: 'High-fidelity implementation of a Florida & Texas private commercial mortgage lending portal. Engineered from detailed Figma design specifications with strict responsive viewport fidelity.',
       tags: ['Next.js', 'Tailwind CSS', 'TypeScript', 'Figma Spec'],
       icon: 'Layers',
+      imageUrl: 'https://images.unsplash.com/photo-1498050108023-c5249f4df085?auto=format&fit=crop&w=800&q=80',
       githubUrl: 'https://github.com/shishir786/design-figma-clone.git',
       demoUrl: 'https://design-figma-clone.vercel.app/',
       architecture: 'Component-driven frontend with reusable design tokens and layout containers.',
@@ -137,6 +145,7 @@ export default function Projects() {
       description: 'Commercial technology e-commerce application featuring product catalogs, category browsing, cart state synchronization, order management, and secure MySQL database schemas.',
       tags: ['PHP', 'MySQL', 'JavaScript', 'HTML5', 'CSS3'],
       icon: 'Box',
+      imageUrl: 'https://images.unsplash.com/photo-1556740749-887f6717d7e4?auto=format&fit=crop&w=800&q=80',
       githubUrl: 'https://github.com/shishir786/Online-Tech-Shop.git',
       highlights: [
         'Normalized relational database schema handling product catalog & orders',
@@ -151,11 +160,27 @@ export default function Projects() {
       description: 'Desktop management system built with C# WinForms and .NET Framework. Handles real-time dining room table reservations, kitchen order ticketing, inventory deductions, and billing reports.',
       tags: ['C#', '.NET', 'WinForms', 'SQL Server'],
       icon: 'Cpu',
+      imageUrl: 'https://images.unsplash.com/photo-1517248135467-4c7edcad34c4?auto=format&fit=crop&w=800&q=80',
       githubUrl: 'https://github.com/shishir786/Resturent-Manegement-System.git',
       highlights: [
         'Event-driven order routing between floor staff and kitchen terminals',
         'SQL Server stored procedures for transaction-safe daily reconciliations',
         'Automated receipt printing and expense categorization',
+      ],
+    },
+    {
+      id: 'tech-shop-java',
+      title: 'Tech Shop Java Desktop Application',
+      category: 'Desktop App',
+      description: 'Object-oriented shopping and inventory management system built with Java Swing, demonstrating core OOP principles, multi-threading, and desktop UI development.',
+      tags: ['Java', 'Swing', 'OOP', 'Desktop App'],
+      icon: 'Box',
+      imageUrl: 'https://images.unsplash.com/photo-1515879218367-8466d910aaa4?auto=format&fit=crop&w=800&q=80',
+      githubUrl: 'https://github.com/shishir786/Shop-java-project.git',
+      highlights: [
+        'Core OOP inheritance, encapsulation, and interface structures',
+        'File I/O and relational database connectivity for order records',
+        'Interactive catalog browser with custom Swing layouts',
       ],
     },
     {
@@ -165,11 +190,27 @@ export default function Projects() {
       description: '3D computer graphics simulation engineered with OpenGL and C++. Demonstrates lighting shaders, 3D vector transformations, camera matrix calculations, and realistic scenery rendering.',
       tags: ['OpenGL', 'C++', 'Computer Graphics', 'GLSL Shaders'],
       icon: 'Box',
+      imageUrl: 'https://images.unsplash.com/photo-1474487548417-781cb71495f3?auto=format&fit=crop&w=800&q=80',
       githubUrl: 'https://github.com/shishir786/Train-journy-view-using-open_gl-.git',
       highlights: [
         'Implementation of Phong illumination model and ambient occlusion',
         'Real-time terrain and geometric vertex buffer streaming',
         'Keyboard and mouse camera control with smooth collision bounds',
+      ],
+    },
+    {
+      id: 'tour-data-collector',
+      title: 'Tour Data Management System',
+      category: 'Full Stack',
+      description: 'Travel data collection and management system built with PHP and MySQL for handling agency bookings, traveler records, and custom travel itineraries.',
+      tags: ['PHP', 'MySQL', 'jQuery', 'Web Development'],
+      icon: 'Box',
+      imageUrl: 'https://images.unsplash.com/photo-1488646953014-85cb44e25828?auto=format&fit=crop&w=800&q=80',
+      githubUrl: 'https://github.com/shishir786/Tour-Data-Collect.git',
+      highlights: [
+        'Relational data management for itineraries, customers, and payment logs',
+        'Multi-step dynamic booking form with client-side validation',
+        'Exportable travel logs and agency analytics reports',
       ],
     },
   ];
@@ -379,7 +420,7 @@ export default function Projects() {
               animate={{ opacity: 1, scale: 1, y: 0 }}
               exit={{ opacity: 0, scale: 0.95, y: 12 }}
               transition={{ duration: 0.25 }}
-              className="relative w-full max-w-3xl max-h-[90vh] overflow-y-auto rounded-2xl bg-[#0B101D] border border-white/[0.12] shadow-2xl p-6 sm:p-8 z-10 space-y-6"
+              className="relative w-full max-w-3xl max-h-[90vh] overflow-y-auto hide-scrollbar rounded-2xl bg-[#0B101D] border border-white/[0.12] shadow-2xl p-6 sm:p-8 z-10 space-y-6"
             >
               {/* Header with Close */}
               <div className="flex items-start justify-between gap-4 border-b border-white/[0.08] pb-4">
@@ -412,23 +453,50 @@ export default function Projects() {
                 </div>
               )}
 
-              {/* Description & Problem Context */}
-              <div className="space-y-3">
-                <h4 className="text-xs font-mono uppercase tracking-wider text-slate-400 font-semibold">
-                  Overview &amp; Implementation
-                </h4>
-                <p className="text-base text-slate-200 leading-relaxed font-normal">
-                  {selectedProject.description}
-                </p>
-              </div>
+              {/* Problem & Solution (if available) */}
+              {selectedProject.problem ? (
+                <div className="space-y-5">
+                  <div className="p-4 sm:p-5 rounded-xl bg-amber-500/[0.04] border border-amber-500/20 space-y-2">
+                    <h4 className="text-xs font-mono uppercase tracking-wider text-amber-400 font-bold flex items-center gap-2">
+                      <span className="w-1.5 h-1.5 rounded-full bg-amber-400"></span>
+                      The Problem
+                    </h4>
+                    <p className="text-sm sm:text-base text-slate-200 leading-relaxed font-normal">
+                      {selectedProject.problem}
+                    </p>
+                  </div>
 
-              {/* Architectural Highlights */}
+                  {selectedProject.solution && (
+                    <div className="p-4 sm:p-5 rounded-xl bg-blue-500/[0.04] border border-blue-500/20 space-y-2">
+                      <h4 className="text-xs font-mono uppercase tracking-wider text-blue-400 font-bold flex items-center gap-2">
+                        <span className="w-1.5 h-1.5 rounded-full bg-blue-400"></span>
+                        The Solution
+                      </h4>
+                      <p className="text-sm sm:text-base text-slate-200 leading-relaxed font-normal">
+                        {selectedProject.solution}
+                      </p>
+                    </div>
+                  )}
+                </div>
+              ) : (
+                /* Standard Description */
+                <div className="space-y-3">
+                  <h4 className="text-xs font-mono uppercase tracking-wider text-slate-400 font-semibold">
+                    Overview &amp; Implementation
+                  </h4>
+                  <p className="text-base text-slate-200 leading-relaxed font-normal">
+                    {selectedProject.description}
+                  </p>
+                </div>
+              )}
+
+              {/* Key Features / Highlights */}
               {selectedProject.highlights && selectedProject.highlights.length > 0 && (
                 <div className="space-y-3">
                   <h4 className="text-xs font-mono uppercase tracking-wider text-slate-400 font-semibold">
-                    Key Engineering Achievements
+                    {selectedProject.problem ? 'Key Features of the Build' : 'Key Engineering Achievements'}
                   </h4>
-                  <ul className="space-y-2">
+                  <ul className="space-y-2.5">
                     {selectedProject.highlights.map((h, i) => (
                       <li key={i} className="flex items-start gap-2.5 text-sm text-slate-300">
                         <CheckCircle className="w-4 h-4 text-blue-400 shrink-0 mt-0.5" />
@@ -441,9 +509,11 @@ export default function Projects() {
 
               {/* Architecture Blueprint Note */}
               {selectedProject.architecture && (
-                <div className="p-4 rounded-xl bg-blue-950/20 border border-blue-500/20 text-xs text-blue-200 space-y-1">
-                  <span className="font-mono uppercase font-bold text-blue-400 block">System Architecture</span>
-                  <p>{selectedProject.architecture}</p>
+                <div className="p-4 rounded-xl bg-blue-950/20 border border-blue-500/20 text-xs text-blue-200 space-y-1.5">
+                  <span className="font-mono uppercase font-bold text-blue-400 block tracking-wider">
+                    Tech Stack &amp; Architecture
+                  </span>
+                  <p className="leading-relaxed">{selectedProject.architecture}</p>
                 </div>
               )}
 
