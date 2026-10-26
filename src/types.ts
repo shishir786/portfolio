@@ -2,12 +2,15 @@ export interface Project {
   id: string;
   title: string;
   description: string;
-  category: 'Full Stack' | 'Frontend' | 'Backend'| 'Desktop App' | 'Graphics';
+  category: 'Full Stack' | 'Frontend' | 'Backend' | 'Desktop App' | 'Graphics';
   tags: string[];
-  icon: string; // lucide class name / identifier
-    imageUrl?: string;
+  icon: string;
+  imageUrl?: string;
   demoUrl?: string;
   githubUrl?: string;
+  featured?: boolean;
+  highlights?: string[];
+  architecture?: string;
 }
 
 export interface Certification {
@@ -17,18 +20,22 @@ export interface Certification {
   description: string;
   year: string;
   icon: string;
+  credentialUrl?: string;
 }
 
 export interface SkillCategory {
   title: string;
   icon: string;
-  skills: string[];
+  description: string;
+  skills: { name: string; level?: 'Advanced' | 'Proficient' | 'Familiar'; tag?: string }[];
 }
 
 export interface TimelineItem {
   id: string;
   roleOrDegree: string;
   organization: string;
+  location?: string;
   period: string;
   description: string;
+  highlights?: string[];
 }

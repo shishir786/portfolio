@@ -1,191 +1,227 @@
 "use client";
 
+import { useState } from 'react';
 import { motion } from 'motion/react';
-import { LuMonitor, LuServer, LuDatabase, LuCode, LuWrench, LuGraduationCap } from 'react-icons/lu';
+import {
+  Code2,
+  Monitor,
+  Server,
+  Database,
+  Wrench,
+  Cpu,
+  Layers,
+  Terminal,
+} from 'lucide-react';
 import { SkillCategory } from '../types';
 
 export default function Expertise() {
+  const [selectedCategory, setSelectedCategory] = useState<string>('all');
+
   const categories: SkillCategory[] = [
     {
-      title: 'Languages',
+      title: 'Languages & Runtimes',
       icon: 'Code2',
-      skills: ['TypeScript', 'JavaScript', 'Python', 'PHP', 'Java', 'C++', 'C#'],
+      description: 'Strong foundation in typed, compiled, and interpreted languages for server and client execution.',
+      skills: [
+        { name: 'TypeScript', level: 'Advanced' },
+        { name: 'JavaScript (ESNext)', level: 'Advanced' },
+        { name: 'Python', level: 'Proficient' },
+        { name: 'Java (17+)', level: 'Proficient' },
+        { name: 'C++', level: 'Proficient' },
+        { name: 'C# / .NET', level: 'Familiar' },
+        { name: 'PHP', level: 'Proficient' },
+      ],
     },
     {
-      title: 'Frontend',
+      title: 'Frontend Engineering',
       icon: 'Monitor',
-      skills: ['React.js', 'Next.js', 'Tailwind CSS', 'HTML5', 'Redux'],
+      description: 'Building accessible, fast, and responsive user interfaces with modern component architectures.',
+      skills: [
+        { name: 'Next.js (App Router)', level: 'Advanced' },
+        { name: 'React 19', level: 'Advanced' },
+        { name: 'Tailwind CSS v4', level: 'Advanced' },
+        { name: 'Redux Toolkit', level: 'Proficient' },
+        { name: 'HTML5 & Semantic Web', level: 'Advanced' },
+        { name: 'Motion / Animations', level: 'Proficient' },
+      ],
     },
     {
-      title: 'Backend',
+      title: 'Backend & Microservices',
       icon: 'Server',
-      skills: ['Node.js', 'Express.js', 'NestJS', 'Spring Boot'],
+      description: 'Designing resilient, secure REST and GraphQL endpoints with strict validation and middleware.',
+      skills: [
+        { name: 'Node.js', level: 'Advanced' },
+        { name: 'NestJS', level: 'Advanced' },
+        { name: 'Express.js', level: 'Advanced' },
+        { name: 'Spring Boot 3', level: 'Proficient' },
+        { name: 'RESTful API Design', level: 'Advanced' },
+        { name: 'JWT & RBAC Security', level: 'Advanced' },
+      ],
     },
     {
-      title: 'Databases',
+      title: 'Databases & Data Modeling',
       icon: 'Database',
-      skills: ['PostgreSQL', 'MySQL', 'MongoDB', 'Oracle', 'MariaDB', 'Prisma'],
+      description: 'Relational schema design, document data persistence, query optimization, and transactions.',
+      skills: [
+        { name: 'PostgreSQL', level: 'Advanced' },
+        { name: 'MongoDB', level: 'Advanced' },
+        { name: 'MySQL / MariaDB', level: 'Proficient' },
+        { name: 'Prisma ORM', level: 'Proficient' },
+        { name: 'TypeORM / Hibernate', level: 'Proficient' },
+        { name: 'Redis (Caching)', level: 'Familiar' },
+      ],
     },
     {
-      title: 'Tools & Systems',
+      title: 'DevOps & Tooling',
       icon: 'Wrench',
-      skills: ['Git', 'Linux', 'Docker', 'Postman', 'Figma'],
+      description: 'Automating environments, version control hygiene, and containerized workflow standards.',
+      skills: [
+        { name: 'Git & GitHub Workflows', level: 'Advanced' },
+        { name: 'Docker Containers', level: 'Proficient' },
+        { name: 'Linux / Bash Scripting', level: 'Proficient' },
+        { name: 'Postman & API Testing', level: 'Advanced' },
+        { name: 'Figma to Code', level: 'Advanced' },
+        { name: 'Vercel / Cloud Run', level: 'Proficient' },
+      ],
     },
     {
-      title: 'Learning & Analytics',
-      icon: 'GraduationCap',
-      skills: ['AWS', 'GraphQL', 'Microservices', 'PyTorch', 'TensorFlow', 'Pandas', 'Arduino', 'MATLAB'],
+      title: 'Scientific & Data Foundations',
+      icon: 'Cpu',
+      description: 'Fundamental computer science, algorithm analysis, mathematical modeling, and ML libraries.',
+      skills: [
+        { name: 'Algorithms & Structures', level: 'Advanced' },
+        { name: 'PyTorch & TensorFlow', level: 'Familiar' },
+        { name: 'Pandas & NumPy', level: 'Proficient' },
+        { name: 'Computer Graphics (OpenGL)', level: 'Proficient' },
+        { name: 'MATLAB & Arduino', level: 'Familiar' },
+      ],
     },
   ];
 
-  const getIcon = (iconName: string) => {
+  const getCategoryIcon = (iconName: string) => {
     switch (iconName) {
       case 'Code2':
-        return <LuCode className="w-5 h-5 text-[#3B82F6]" />;
+        return <Code2 className="w-5 h-5 text-blue-400" />;
       case 'Monitor':
-        return <LuMonitor className="w-5 h-5 text-[#3B82F6]" />;
+        return <Monitor className="w-5 h-5 text-blue-400" />;
       case 'Server':
-        return <LuServer className="w-5 h-5 text-[#3B82F6]" />;
+        return <Server className="w-5 h-5 text-blue-400" />;
       case 'Database':
-        return <LuDatabase className="w-5 h-5 text-[#3B82F6]" />;
+        return <Database className="w-5 h-5 text-blue-400" />;
       case 'Wrench':
-        return <LuWrench className="w-5 h-5 text-[#3B82F6]" />;
-      case 'GraduationCap':
-        return <LuGraduationCap className="w-5 h-5 text-[#3B82F6]" />;
+        return <Wrench className="w-5 h-5 text-blue-400" />;
+      case 'Cpu':
+        return <Cpu className="w-5 h-5 text-blue-400" />;
       default:
-        return <LuCode className="w-5 h-5 text-[#3B82F6]" />;
+        return <Layers className="w-5 h-5 text-blue-400" />;
     }
   };
 
-  const getSkillStyle = (skill: string) => {
-    switch (skill) {
-      case 'TypeScript':
-        return { bg: 'hover:bg-[#3178C6]/10 hover:border-[#3178C6]/30', color: 'hover:text-[#3178C6]', dot: 'bg-[#3178C6]' };
-      case 'JavaScript':
-        return { bg: 'hover:bg-[#F7DF1E]/10 hover:border-[#F7DF1E]/30', color: 'hover:text-[#F7DF1E]', dot: 'bg-[#F7DF1E]' };
-      case 'Python':
-        return { bg: 'hover:bg-[#3776AB]/10 hover:border-[#3776AB]/30', color: 'hover:text-[#3776AB]', dot: 'bg-[#3776AB]' };
-      case 'PHP':
-        return { bg: 'hover:bg-[#777BB4]/10 hover:border-[#777BB4]/30', color: 'hover:text-[#777BB4]', dot: 'bg-[#777BB4]' };
-      case 'Java':
-        return { bg: 'hover:bg-[#ED8B00]/10 hover:border-[#ED8B00]/30', color: 'hover:text-[#ED8B00]', dot: 'bg-[#ED8B00]' };
-      case 'C++':
-        return { bg: 'hover:bg-[#00599C]/10 hover:border-[#00599C]/30', color: 'hover:text-[#00599C]', dot: 'bg-[#00599C]' };
-      case 'C#':
-        return { bg: 'hover:bg-[#239120]/10 hover:border-[#239120]/30', color: 'hover:text-[#239120]', dot: 'bg-[#239120]' };
-
-      case 'React.js':
-        return { bg: 'hover:bg-[#61DAFB]/10 hover:border-[#61DAFB]/30', color: 'hover:text-[#61DAFB]', dot: 'bg-[#61DAFB]' };
-      case 'Next.js':
-        return { bg: 'hover:bg-[#FFFFFF]/10 hover:border-[#FFFFFF]/30', color: 'hover:text-white', dot: 'bg-white' };
-      case 'Tailwind CSS':
-        return { bg: 'hover:bg-[#06B6D4]/10 hover:border-[#06B6D4]/30', color: 'hover:text-[#06B6D4]', dot: 'bg-[#06B6D4]' };
-      case 'HTML5':
-        return { bg: 'hover:bg-[#E34F26]/10 hover:border-[#E34F26]/30', color: 'hover:text-[#E34F26]', dot: 'bg-[#E34F26]' };
-      case 'Redux':
-        return { bg: 'hover:bg-[#764ABC]/10 hover:border-[#764ABC]/30', color: 'hover:text-[#764ABC]', dot: 'bg-[#764ABC]' };
-
-      case 'Node.js':
-        return { bg: 'hover:bg-[#339933]/10 hover:border-[#339933]/30', color: 'hover:text-[#339933]', dot: 'bg-[#339933]' };
-      case 'Express.js':
-        return { bg: 'hover:bg-[#FFFFFF]/10 hover:border-[#FFFFFF]/30', color: 'hover:text-white', dot: 'bg-white' };
-      case 'NestJS':
-        return { bg: 'hover:bg-[#E0234E]/10 hover:border-[#E0234E]/30', color: 'hover:text-[#E0234E]', dot: 'bg-[#E0234E]' };
-      case 'Spring Boot':
-        return { bg: 'hover:bg-[#6DB33F]/10 hover:border-[#6DB33F]/30', color: 'hover:text-[#6DB33F]', dot: 'bg-[#6DB33F]' };
-
-      case 'PostgreSQL':
-        return { bg: 'hover:bg-[#4169E1]/10 hover:border-[#4169E1]/30', color: 'hover:text-[#4169E1]', dot: 'bg-[#4169E1]' };
-      case 'MySQL':
-        return { bg: 'hover:bg-[#4479A1]/10 hover:border-[#4479A1]/30', color: 'hover:text-[#4479A1]', dot: 'bg-[#4479A1]' };
-      case 'MongoDB':
-        return { bg: 'hover:bg-[#47A248]/10 hover:border-[#47A248]/30', color: 'hover:text-[#47A248]', dot: 'bg-[#47A248]' };
-      case 'Oracle':
-        return { bg: 'hover:bg-[#F80000]/10 hover:border-[#F80000]/30', color: 'hover:text-[#F80000]', dot: 'bg-[#F80000]' };
-      case 'MariaDB':
-        return { bg: 'hover:bg-[#003545]/20 hover:border-[#003545]/40', color: 'hover:text-[#00F3FF]', dot: 'bg-[#00F3FF]' };
-      case 'Prisma':
-        return { bg: 'hover:bg-[#2D3748]/10 hover:border-[#2D3748]/30', color: 'hover:text-[#2D3748]', dot: 'bg-teal-400' };
-
-      case 'Git':
-        return { bg: 'hover:bg-[#F05032]/10 hover:border-[#F05032]/30', color: 'hover:text-[#F05032]', dot: 'bg-[#F05032]' };
-      case 'Linux':
-        return { bg: 'hover:bg-[#FCC624]/10 hover:border-[#FCC624]/30', color: 'hover:text-[#FCC624]', dot: 'bg-[#FCC624]' };
-      case 'Docker':
-        return { bg: 'hover:bg-[#2496ED]/10 hover:border-[#2496ED]/30', color: 'hover:text-[#2496ED]', dot: 'bg-[#2496ED]' };
-      case 'Postman':
-        return { bg: 'hover:bg-[#FF6C37]/10 hover:border-[#FF6C37]/30', color: 'hover:text-[#FF6C37]', dot: 'bg-[#FF6C37]' };
-      case 'Figma':
-        return { bg: 'hover:bg-[#F24E1E]/10 hover:border-[#F24E1E]/30', color: 'hover:text-[#F24E1E]', dot: 'bg-[#A259FF]' };
-
-      case 'AWS':
-        return { bg: 'hover:bg-[#FF9900]/10 hover:border-[#FF9900]/30', color: 'hover:text-[#FF9900]', dot: 'bg-[#FF9900]' };
-      case 'GraphQL':
-        return { bg: 'hover:bg-[#E10098]/10 hover:border-[#E10098]/30', color: 'hover:text-[#E10098]', dot: 'bg-[#E10098]' };
-      case 'Microservices':
-        return { bg: 'hover:bg-[#6366F1]/10 hover:border-[#6366F1]/30', color: 'hover:text-[#6366F1]', dot: 'bg-[#6366F1]' };
-      case 'PyTorch':
-        return { bg: 'hover:bg-[#EE4C2C]/10 hover:border-[#EE4C2C]/30', color: 'hover:text-[#EE4C2C]', dot: 'bg-[#EE4C2C]' };
-      case 'TensorFlow':
-        return { bg: 'hover:bg-[#FF6F00]/10 hover:border-[#FF6F00]/30', color: 'hover:text-[#FF6F00]', dot: 'bg-[#FF6F00]' };
-      case 'Pandas':
-        return { bg: 'hover:bg-[#150458]/20 hover:border-[#150458]/40', color: 'hover:text-[#3B82F6]', dot: 'bg-[#150448]' };
-      case 'Arduino':
-        return { bg: 'hover:bg-[#00979D]/10 hover:border-[#00979D]/30', color: 'hover:text-[#00979D]', dot: 'bg-[#00979D]' };
-      case 'MATLAB':
-        return { bg: 'hover:bg-[#D9361F]/10 hover:border-[#D9361F]/30', color: 'hover:text-[#D9361F]', dot: 'bg-[#D9361F]' };
-
-      default:
-        return { bg: 'hover:bg-[#3B82F6]/10 hover:border-[#3B82F6]/30', color: 'hover:text-[#3B82F6]', dot: 'bg-slate-400' };
-    }
-  };
+  const displayedCategories =
+    selectedCategory === 'all'
+      ? categories
+      : categories.filter((c) => c.title.toLowerCase().includes(selectedCategory));
 
   return (
-    <section id="expertise" className="max-w-7xl mx-auto px-6 py-24 border-t border-white/5 bg-gradient-to-b from-transparent to-[#0F172A]/20">
-      <div className="text-center mb-16 space-y-3">
-        <span className="text-[11px] font-extrabold uppercase tracking-widest text-[#3B82F6] bg-[#3B82F6]/10 px-3 py-1 rounded-full border border-[#3B82F6]/10">
-          Abilities
-        </span>
-        <h2 className="text-3xl md:text-4xl font-extrabold text-[#dfe3e7] tracking-tight">Technical Expertise</h2>
-        <div className="w-16 h-1 bg-[#3B82F6] rounded mx-auto"></div>
-      </div>
+    <section id="expertise" className="py-24 border-b border-white/[0.08] relative">
+      <div className="max-w-7xl mx-auto px-6">
+        {/* Section Header */}
+        <div className="flex flex-col md:flex-row md:items-end justify-between gap-6 mb-12">
+          <div className="max-w-xl space-y-2">
+            <div className="text-xs font-mono uppercase tracking-wider text-blue-400 font-semibold">
+              Technical Matrix &amp; Systems
+            </div>
+            <h2 className="text-2xl sm:text-3xl font-extrabold text-white tracking-tight">
+              Architecture &amp; Core Stacks
+            </h2>
+            <p className="text-sm text-slate-300 leading-relaxed font-normal">
+              A breakdown of the programming languages, backend frameworks, databases, and engineering workflows I leverage in production.
+            </p>
+          </div>
 
-      <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6 lg:gap-8">
-        {categories.map((category, idx) => (
-          <motion.div
-            id={`expertise-${category.title.toLowerCase().replace(/[^a-z0-9]+/g, '-')}`}
-            key={category.title}
-            initial={{ opacity: 0, y: 15 }}
-            whileInView={{ opacity: 1, y: 0 }}
-            viewport={{ once: true, margin: '-50px' }}
-            transition={{ duration: 0.5, delay: idx * 0.08 }}
-            className="surface-1 p-6 md:p-8 rounded-2xl bg-gradient-to-b from-[#1E293B]/50 to-[#0F172A]/50 border border-white/5 hover:border-white/10 transition-all duration-350 relative group"
-          >
-            <div className="flex items-center gap-3.5 mb-6">
-              <div className="w-10 h-10 rounded-xl bg-[#3B82F6]/10 border border-[#3B82F6]/20 flex items-center justify-center shrink-0 group-hover:scale-105 transition-transform duration-300">
-                {getIcon(category.icon)}
+          {/* Quick filter tabs */}
+          <div className="flex items-center gap-1.5 p-1 bg-white/[0.04] border border-white/[0.08] rounded-lg shrink-0 overflow-x-auto hide-scrollbar">
+            <button
+              onClick={() => setSelectedCategory('all')}
+              className={`px-3 py-1.5 rounded-md text-xs font-semibold whitespace-nowrap transition-colors cursor-pointer ${
+                selectedCategory === 'all'
+                  ? 'bg-blue-600 text-white shadow-sm'
+                  : 'text-slate-300 hover:text-white hover:bg-white/[0.05]'
+              }`}
+            >
+              All Stacks
+            </button>
+            <button
+              onClick={() => setSelectedCategory('backend')}
+              className={`px-3 py-1.5 rounded-md text-xs font-semibold whitespace-nowrap transition-colors cursor-pointer ${
+                selectedCategory === 'backend'
+                  ? 'bg-blue-600 text-white shadow-sm'
+                  : 'text-slate-300 hover:text-white hover:bg-white/[0.05]'
+              }`}
+            >
+              Backend &amp; DB
+            </button>
+            <button
+              onClick={() => setSelectedCategory('frontend')}
+              className={`px-3 py-1.5 rounded-md text-xs font-semibold whitespace-nowrap transition-colors cursor-pointer ${
+                selectedCategory === 'frontend'
+                  ? 'bg-blue-600 text-white shadow-sm'
+                  : 'text-slate-300 hover:text-white hover:bg-white/[0.05]'
+              }`}
+            >
+              Frontend
+            </button>
+          </div>
+        </div>
+
+        {/* Matrix Grid */}
+        <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
+          {displayedCategories.map((cat, idx) => (
+            <motion.div
+              key={cat.title}
+              initial={{ opacity: 0, y: 14 }}
+              whileInView={{ opacity: 1, y: 0 }}
+              viewport={{ once: true, margin: '-50px' }}
+              transition={{ duration: 0.4, delay: idx * 0.08 }}
+              className="p-6 rounded-xl surface-card surface-card-hover border border-white/[0.08] flex flex-col justify-between"
+            >
+              <div>
+                {/* Header */}
+                <div className="flex items-center gap-3 mb-3">
+                  <div className="w-9 h-9 rounded-lg bg-blue-600/10 border border-blue-500/20 flex items-center justify-center shrink-0">
+                    {getCategoryIcon(cat.icon)}
+                  </div>
+                  <div>
+                    <h3 className="text-base font-bold text-white tracking-tight">
+                      {cat.title}
+                    </h3>
+                  </div>
+                </div>
+
+                <p className="text-xs text-slate-300 mb-6 leading-relaxed">
+                  {cat.description}
+                </p>
+
+                {/* Skills Unboxed List with subtle level indicators */}
+                <div className="space-y-2 border-t border-white/[0.06] pt-4">
+                  {cat.skills.map((skill) => (
+                    <div
+                      key={skill.name}
+                      className="flex items-center justify-between text-xs py-1"
+                    >
+                      <span className="font-medium text-slate-200">
+                        {skill.name}
+                      </span>
+                      <span className="font-mono text-[11px] text-slate-400">
+                        {skill.level}
+                      </span>
+                    </div>
+                  ))}
+                </div>
               </div>
-              <h3 className="text-lg font-bold text-[#dfe3e7] font-sans group-hover:text-white transition-colors">
-                {category.title}
-              </h3>
-            </div>
-
-            <div className="flex flex-wrap gap-2.5">
-              {category.skills.map((skill) => {
-                const style = getSkillStyle(skill);
-                return (
-                  <span
-                    key={skill}
-                    className={`inline-flex items-center gap-2 px-3.5 py-2 bg-white/5 border border-white/5 rounded-xl text-xs font-semibold text-[#c2c6d6] transition-all duration-200 cursor-default ${style.bg} ${style.color}`}
-                  >
-                    <span className={`w-1.5 h-1.5 rounded-full ${style.dot} opacity-75 group-hover:opacity-100`}></span>
-                    {skill}
-                  </span>
-                );
-              })}
-            </div>
-          </motion.div>
-        ))}
+            </motion.div>
+          ))}
+        </div>
       </div>
     </section>
   );

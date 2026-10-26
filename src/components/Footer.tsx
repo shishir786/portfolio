@@ -1,71 +1,85 @@
 "use client";
 
-import { LuGithub, LuLinkedin, LuMail, LuArrowUp } from 'react-icons/lu';
+import { ArrowUp, Mail } from 'lucide-react';
+import { LuGithub, LuLinkedin } from 'react-icons/lu';
 
 export default function Footer() {
   const currentYear = new Date().getFullYear();
 
+  const handleScrollToTop = () => {
+    window.scrollTo({ top: 0, behavior: 'smooth' });
+  };
+
   return (
-    <footer className="border-t border-white/5 bg-[#0A0F12] py-12 relative overflow-hidden">
-      {/* Soft light effects */}
-      <div className="absolute bottom-0 left-1/2 -translate-x-1/2 bg-blue-500/5 w-96 h-40 rounded-full blur-3xl pointer-events-none"></div>
+    <footer className="py-14 bg-[#05080E] text-slate-400 border-t border-white/[0.08] relative">
+      <div className="max-w-7xl mx-auto px-6">
+        <div className="flex flex-col md:flex-row items-center justify-between gap-8">
+          {/* Brand & Summary */}
+          <div className="space-y-1 text-center md:text-left">
+            <div className="flex items-center justify-center md:justify-start gap-2 text-white font-bold text-base tracking-tight">
+              <span className="w-2 h-2 rounded-sm bg-blue-600 inline-block"></span>
+              <span>Md. Abdullah Shishir</span>
+            </div>
+            <p className="text-xs text-slate-400 max-w-sm">
+              Full Stack Engineer specializing in scalable backend systems and high-performance web applications.
+            </p>
+          </div>
 
-      <div className="max-w-7xl mx-auto px-6 flex flex-col md:flex-row items-center justify-between gap-6 relative z-10">
-        {/* Left: Branding & Tagline */}
-        <div className="space-y-2 text-center md:text-left">
-          <h3 className="text-xl font-bold tracking-tighter text-[#dfe3e7]">
-            Md. Abdullah Shishir<span className="text-[#3B82F6]">.</span>
-          </h3>
-          <p className="text-xs text-[#c2c6d6]/60 max-w-xs">
-            Building scalable full-stack applications with beautiful interfaces and robust backends.
-          </p>
+          {/* Navigation Links */}
+          <nav className="flex flex-wrap justify-center gap-6 text-xs font-medium text-slate-300">
+            <a href="#about" className="hover:text-white transition-colors">About</a>
+            <a href="#work" className="hover:text-white transition-colors">Projects</a>
+            <a href="#expertise" className="hover:text-white transition-colors">Expertise</a>
+            <a href="#experience" className="hover:text-white transition-colors">Experience</a>
+            <a href="#contact" className="hover:text-white transition-colors">Contact</a>
+          </nav>
+
+          {/* Social Icons & Back to Top */}
+          <div className="flex items-center gap-3">
+            <a
+              href="https://github.com/shishir786"
+              target="_blank"
+              rel="noopener noreferrer"
+              className="w-9 h-9 rounded-lg bg-white/[0.04] hover:bg-white/[0.08] border border-white/[0.08] hover:border-white/[0.2] flex items-center justify-center text-slate-300 hover:text-white transition-colors"
+              title="GitHub"
+            >
+              <LuGithub className="w-4 h-4" />
+            </a>
+            <a
+              href="https://linkedin.com/in/abdullah-shishir"
+              target="_blank"
+              rel="noopener noreferrer"
+              className="w-9 h-9 rounded-lg bg-white/[0.04] hover:bg-white/[0.08] border border-white/[0.08] hover:border-white/[0.2] flex items-center justify-center text-slate-300 hover:text-white transition-colors"
+              title="LinkedIn"
+            >
+              <LuLinkedin className="w-4 h-4" />
+            </a>
+            <a
+              href="mailto:abdullahshishir786@gmail.com"
+              className="w-9 h-9 rounded-lg bg-white/[0.04] hover:bg-white/[0.08] border border-white/[0.08] hover:border-white/[0.2] flex items-center justify-center text-slate-300 hover:text-white transition-colors"
+              title="Email"
+            >
+              <Mail className="w-4 h-4" />
+            </a>
+            <button
+              onClick={handleScrollToTop}
+              className="w-9 h-9 rounded-lg bg-white/[0.04] hover:bg-blue-600/20 border border-white/[0.08] hover:border-blue-500/40 flex items-center justify-center text-slate-300 hover:text-blue-400 transition-colors ml-2 cursor-pointer"
+              title="Back to Top"
+              aria-label="Back to Top"
+            >
+              <ArrowUp className="w-4 h-4" />
+            </button>
+          </div>
         </div>
 
-        {/* Center: Social Links */}
-        <div className="flex gap-4">
-          <a
-            id="footer-social-github"
-            href="https://github.com/shishir786"
-            target="_blank"
-            rel="noopener noreferrer"
-            className="w-10 h-10 rounded-full bg-white/5 hover:bg-[#3B82F6]/10 border border-white/5 hover:border-[#3B82F6]/30 flex items-center justify-center text-[#c2c6d6] hover:text-[#3B82F6] transition-all duration-300"
-            title="GitHub"
-          >
-            <LuGithub className="w-4 h-4" />
-          </a>
-          <a
-            id="footer-social-linkedin"
-            href="https://linkedin.com/in/abdullah-shishir"
-            target="_blank"
-            rel="noopener noreferrer"
-            className="w-10 h-10 rounded-full bg-white/5 hover:bg-[#3B82F6]/10 border border-white/5 hover:border-[#3B82F6]/30 flex items-center justify-center text-[#c2c6d6] hover:text-[#3B82F6] transition-all duration-300"
-            title="LinkedIn"
-          >
-            <LuLinkedin className="w-4 h-4" />
-          </a>
-          <a
-            id="footer-social-email"
-            href="mailto:abdullahshishir786@gmail.com"
-            className="w-10 h-10 rounded-full bg-white/5 hover:bg-[#3B82F6]/10 border border-white/5 hover:border-[#3B82F6]/30 flex items-center justify-center text-[#c2c6d6] hover:text-[#3B82F6] transition-all duration-300"
-            title="Email"
-          >
-            <LuMail className="w-4 h-4" />
-          </a>
-        </div>
-
-        {/* Right: Copyright & Top Button */}
-        <div className="flex flex-col items-center md:items-end gap-3 text-center md:text-right">
-          <button
-            onClick={() => window.scrollTo({ top: 0, behavior: 'smooth' })}
-            className="p-2.5 rounded-xl bg-white/5 hover:bg-[#3B82F6]/10 border border-white/5 hover:border-[#3B82F6]/30 text-[#c2c6d6] hover:text-white transition-all duration-300 group cursor-pointer flex items-center gap-1.5 text-xs font-semibold uppercase tracking-wider"
-            title="Back to top"
-          >
-            Back to top
-            <LuArrowUp className="w-3.5 h-3.5 transform group-hover:-translate-y-0.5 transition-transform" />
-          </button>
-          <p className="text-xs text-[#c2c6d6]/40">
-            © {currentYear}{' '}Md. Abdullah Shishir Designed &amp; Engineered with ❤️
-          </p>
+        {/* Bottom copyright line */}
+        <div className="mt-10 pt-6 border-t border-white/[0.04] flex flex-col sm:flex-row items-center justify-between gap-4 text-xs font-mono text-slate-400">
+          <div>
+            © {currentYear} Md. Abdullah Shishir. All rights reserved.
+          </div>
+          <div>
+            Dhaka, Bangladesh · Built with Next.js &amp; Tailwind CSS
+          </div>
         </div>
       </div>
     </footer>
