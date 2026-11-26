@@ -9,3 +9,6 @@ coverage/
 
 # astro
 .astro/
+
+# vercel
+.vercel/

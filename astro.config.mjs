@@ -1,10 +1,10 @@
 import { defineConfig } from 'astro/config';
-import node from '@astrojs/node';
+import vercel from '@astrojs/vercel';
 import tailwindcss from '@tailwindcss/vite';
 
 export default defineConfig({
   output: 'static', // pages prerendered; API routes opt out with `prerender = false`
-  adapter: node({ mode: 'standalone' }),
+  adapter: vercel(),
   server: { host: true },
   vite: { plugins: [tailwindcss()] },
 });
