@@ -1,0 +1,160 @@
+---
+import { Menu, X, Download, Send } from '@lucide/astro';
+
+const navLinks = [
+  { label: 'About', href: '#about' },
+  { label: 'Projects', href: '#work' },
+  { label: 'Expertise', href: '#expertise' },
+  { label: 'Experience', href: '#experience' },
+  { label: 'Contact', href: '#contact' },
+];
+---
+
+<header
+  id="site-header"
+  class="fixed top-0 left-0 right-0 w-full z-50 transition-all duration-300 bg-transparent py-5 data-[scrolled=true]:py-3.5 data-[scrolled=true]:shadow-lg data-[scrolled=true]:shadow-black/20"
+>
+  <div class="max-w-7xl mx-auto px-6 flex items-center justify-between gap-8">
+    <a
+      href="#"
+      data-scroll-top
+      class="text-base sm:text-lg font-bold tracking-tight text-white hover:text-blue-400 transition-colors whitespace-nowrap shrink-0 flex items-center gap-2"
+    >
+      <span class="w-2.5 h-2.5 rounded-sm bg-blue-600 inline-block"></span>
+      <span>Md. Abdullah Shishir</span>
+    </a>
+
+    <nav class="hidden md:flex items-center gap-8 text-sm font-medium text-slate-300">
+      {navLinks.map((item) => (
+        <a
+          href={item.href}
+          data-nav-link={item.href.slice(1)}
+          class="transition-colors whitespace-nowrap shrink-0 py-1 border-b-2 text-slate-300 hover:text-white border-transparent hover:border-slate-600 data-[active=true]:text-white data-[active=true]:border-blue-500 data-[active=true]:font-semibold"
+        >
+          {item.label}
+        </a>
+      ))}
+    </nav>
+
+    <div class="hidden md:flex items-center gap-3 shrink-0">
+      <button
+        data-download-cv
+        class="btn-secondary-action px-4 py-2 rounded-lg text-xs font-semibold tracking-wide flex items-center gap-2 whitespace-nowrap shrink-0 cursor-pointer"
+      >
+        <Download class="w-3.5 h-3.5 text-blue-400" />
+        <span>Resume</span>
+      </button>
+      <a
+        href="#contact"
+        class="btn-primary-action px-4 py-2 rounded-lg text-xs font-semibold tracking-wide flex items-center gap-2 whitespace-nowrap shrink-0 cursor-pointer"
+      >
+        <span>Let's Talk</span>
+        <Send class="w-3.5 h-3.5" />
+      </a>
+    </div>
+
+    <button
+      id="menu-toggle"
+      aria-label="Open menu"
+      aria-expanded="false"
+      class="md:hidden p-2 text-slate-300 hover:text-white focus:outline-none cursor-pointer"
+    >
+      <Menu class="w-6 h-6 menu-open-icon" />
+      <X class="w-6 h-6 menu-close-icon hidden" />
+    </button>
+  </div>
+
+  <!-- Mobile drawer -->
+  <div
+    id="mobile-menu"
+    class="md:hidden hidden border-b border-white/10 bg-[#070A11]/95 backdrop-blur-2xl px-6 py-6 absolute w-full left-0 top-full shadow-2xl enter-up"
+    style="animation-duration: 0.2s"
+  >
+    <div class="flex flex-col space-y-3">
+      {navLinks.map((item) => (
+        <a href={item.href} class="text-base font-medium text-slate-200 hover:text-blue-400 py-2 border-b border-white/5">
+          {item.label}
+        </a>
+      ))}
+      <div class="pt-3 flex flex-col gap-2.5">
+        <button
+          data-download-cv
+          class="btn-secondary-action py-2.5 rounded-lg text-sm font-semibold flex items-center justify-center gap-2 cursor-pointer"
+        >
+          <Download class="w-4 h-4 text-blue-400" />
+          <span>Download Resume (PDF)</span>
+        </button>
+        <a
+          href="#contact"
+          class="btn-primary-action py-2.5 rounded-lg text-sm font-semibold flex items-center justify-center gap-2 cursor-pointer"
+        >
+          <Send class="w-4 h-4" />
+          <span>Contact Directly</span>
+        </a>
+      </div>
+    </div>
+  </div>
+</header>
+
+<script>
+  const header = document.getElementById('site-header')!;
+  const toggle = document.getElementById('menu-toggle')!;
+  const menu = document.getElementById('mobile-menu')!;
+  const sections = ['hero', 'about', 'work', 'expertise', 'experience', 'contact'];
+  const navLinks = document.querySelectorAll<HTMLElement>('[data-nav-link]');
+
+  function setMenu(open: boolean) {
+    menu.classList.toggle('hidden', !open);
+    if (open) {
+      // restart the entrance animation each time the drawer opens
+      menu.style.animation = 'none';
+      void menu.offsetWidth;
+      menu.style.animation = '';
+    }
+    toggle.setAttribute('aria-expanded', String(open));
+    toggle.setAttribute('aria-label', open ? 'Close menu' : 'Open menu');
+    toggle.querySelector('.menu-open-icon')!.classList.toggle('hidden', open);
+    toggle.querySelector('.menu-close-icon')!.classList.toggle('hidden', !open);
+  }
+
+  toggle.addEventListener('click', () => setMenu(menu.classList.contains('hidden')));
+
+  function onScroll() {
+    header.dataset.scrolled = String(window.scrollY > 24);
+
+    let current = '';
+    for (const id of sections) {
+      const el = document.getElementById(id);
+      if (!el) continue;
+      const rect = el.getBoundingClientRect();
+      if (rect.top <= 140 && rect.bottom >= 140) {
+        current = id;
+        break;
+      }
+    }
+    if (current) {
+      navLinks.forEach((a) => (a.dataset.active = String(a.dataset.navLink === current)));
+    }
+  }
+  window.addEventListener('scroll', onScroll, { passive: true });
+  onScroll();
+
+  // Smooth scroll for in-page links; close the drawer after navigating.
+  header.addEventListener('click', (e) => {
+    const link = (e.target as HTMLElement).closest('a');
+    if (!link) return;
+    const href = link.getAttribute('href') ?? '';
+    if (!href.startsWith('#')) return;
+    e.preventDefault();
+    setMenu(false);
+    const id = href.slice(1);
+    if (!id || id === 'hero') {
+      window.scrollTo({ top: 0, behavior: 'smooth' });
+    } else {
+      document.getElementById(id)?.scrollIntoView({ behavior: 'smooth', block: 'start' });
+    }
+  });
+
+  // Also close the drawer when the resume button inside it is used.
+  menu.querySelector('[data-download-cv]')?.addEventListener('click', () => setMenu(false));
+</script>

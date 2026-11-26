@@ -1,0 +1,57 @@
+---
+import '../styles/global.css';
+
+interface Props {
+  title?: string;
+  description?: string;
+}
+
+const {
+  title = 'Md. Abdullah Shishir - Developer Portfolio',
+  description = 'Md. Abdullah Shishir is a Full Stack Developer specializing in scalable backend systems and responsive frontend architectures.',
+} = Astro.props;
+---
+
+<!doctype html>
+<html lang="en" class="scroll-smooth">
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <title>{title}</title>
+    <meta name="description" content={description} />
+    <meta property="og:title" content="Developer Portfolio - Md. Abdullah Shishir" />
+    <meta property="og:description" content={description} />
+    <link rel="icon" href="/favicon.svg" type="image/svg+xml" />
+    <link rel="apple-touch-icon" href="/favicon.svg" />
+    <script is:inline>document.documentElement.classList.add('js');</script>
+  </head>
+  <body class="antialiased">
+    <slot />
+  </body>
+</html>
+
+<script>
+  // Scroll-reveal for any element with the `.reveal` class.
+  const items = document.querySelectorAll<HTMLElement>('.reveal');
+  if (!('IntersectionObserver' in window)) {
+    items.forEach((el) => el.classList.add('is-visible'));
+  } else {
+    const io = new IntersectionObserver(
+      (entries) => {
+        for (const entry of entries) {
+          if (entry.isIntersecting) {
+            entry.target.classList.add('is-visible');
+            io.unobserve(entry.target);
+          }
+        }
+      },
+      { rootMargin: '0px 0px -50px 0px' },
+    );
+    items.forEach((el) => io.observe(el));
+  }
+
+  // Resume download buttons.
+  import('../utils/cv').then(({ downloadCV }) => {
+    document.querySelectorAll('[data-download-cv]').forEach((el) => el.addEventListener('click', () => downloadCV()));
+  });
+</script>

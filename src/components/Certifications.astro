@@ -1,0 +1,53 @@
+---
+import { Award, CircleCheckBig, TrendingUp, Briefcase, ChartColumn as BarChart3 } from '@lucide/astro';
+import { certifications } from '../data/certifications';
+
+const icons: Record<string, typeof Award> = { BarChart3, Briefcase, TrendingUp };
+---
+
+<section id="certifications" class="py-14 md:py-24 border-b border-white/[0.08] relative">
+  <div class="max-w-7xl mx-auto px-6">
+    <div class="max-w-xl mb-8 md:mb-14 space-y-2">
+      <div class="text-xs font-mono uppercase tracking-wider text-blue-400 font-semibold">Continuous Learning &amp; Credentials</div>
+      <h2 class="text-2xl sm:text-3xl font-extrabold text-white tracking-tight">Professional Certifications</h2>
+      <p class="text-sm text-slate-300 leading-relaxed font-normal">
+        Specialized accreditations in data analysis, enterprise project workflows, and quantitative research.
+      </p>
+    </div>
+
+    <div class="grid grid-cols-1 md:grid-cols-2 gap-6">
+      {certifications.map((cert, idx) => {
+        const Icon = icons[cert.icon] ?? Award;
+        return (
+          <div class="reveal p-6 sm:p-7 rounded-xl surface-card surface-card-hover border border-white/[0.08] flex flex-col justify-between" style={`--d: ${idx * 80}ms`}>
+            <div>
+              <div class="flex items-start gap-4 mb-4">
+                <div class="w-10 h-10 rounded-lg bg-blue-600/10 border border-blue-500/20 flex items-center justify-center shrink-0">
+                  <Icon class="w-5 h-5 text-blue-400" />
+                </div>
+                <div>
+                  <h3 class="text-base sm:text-lg font-bold text-white tracking-tight leading-snug">{cert.title}</h3>
+                  <div class="flex items-center gap-2 text-xs text-slate-400 font-medium mt-1">
+                    <span class="text-blue-400">{cert.issuer}</span>
+                    <span aria-hidden="true" class="text-slate-600">·</span>
+                    <span class="font-mono tabular-numbers">{cert.year}</span>
+                  </div>
+                </div>
+              </div>
+
+              <p class="text-sm text-slate-300 leading-relaxed font-normal">{cert.description}</p>
+            </div>
+
+            <div class="pt-4 mt-6 border-t border-white/[0.06] flex items-center justify-between text-xs">
+              <span class="flex items-center gap-1.5 text-blue-400 font-semibold">
+                <CircleCheckBig class="w-3.5 h-3.5 text-blue-400" />
+                <span>Verified Credential</span>
+              </span>
+              <span class="font-mono text-slate-400">Issued {cert.year}</span>
+            </div>
+          </div>
+        );
+      })}
+    </div>
+  </div>
+</section>

@@ -63,7 +63,7 @@ TECHNICAL EXPERTISE
 - Database: PostgreSQL, MongoDB, Prisma
 - Languages: JavaScript, TypeScript, C++
 - Tools: Git, Docker, Postman, Figma
-- Learning focus: AWS, GraphQL, Microservices
+- Learning focus: AWS, Microservices
 
 -----------------------------------------------------------
 CERTIFICATIONS

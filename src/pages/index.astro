@@ -1,0 +1,32 @@
+---
+import Layout from '../layouts/Layout.astro';
+import Navbar from '../components/Navbar.astro';
+import Hero from '../components/Hero.astro';
+import About from '../components/About.astro';
+import Projects from '../components/Projects.astro';
+import Expertise from '../components/Expertise.astro';
+import Experience from '../components/Experience.astro';
+import Education from '../components/Education.astro';
+import Certifications from '../components/Certifications.astro';
+import Contact from '../components/Contact.astro';
+import Footer from '../components/Footer.astro';
+---
+
+<Layout>
+  <div class="bg-[#070A11] text-slate-200 min-h-screen selection:bg-blue-600/30 selection:text-white">
+    <Navbar />
+
+    <main class="pt-20">
+      <Hero />
+      <About />
+      <Projects />
+      <Expertise />
+      <Experience />
+      <Education />
+      <Certifications />
+      <Contact />
+    </main>
+
+    <Footer />
+  </div>
+</Layout>

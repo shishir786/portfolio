@@ -108,3 +108,39 @@ body {
 ::-webkit-scrollbar-thumb:hover {
   background: rgba(255, 255, 255, 0.25);
 }
+
+/* Scroll-reveal (replaces motion whileInView). Toggled by the script in Layout.astro */
+.js .reveal {
+  opacity: 0;
+  transform: translateY(16px);
+  transition: opacity 0.5s ease-out, transform 0.5s ease-out;
+  transition-delay: var(--d, 0ms);
+}
+.js .reveal.is-visible {
+  opacity: 1;
+  transform: none;
+}
+
+/* Page-load entrance (replaces motion initial/animate) */
+@keyframes enter-up {
+  from { opacity: 0; transform: translateY(16px); }
+  to { opacity: 1; transform: none; }
+}
+@keyframes enter-scale {
+  from { opacity: 0; transform: scale(0.96); }
+  to { opacity: 1; transform: none; }
+}
+.enter-up { animation: enter-up 0.5s ease-out both; animation-delay: var(--d, 0ms); }
+.enter-scale { animation: enter-scale 0.6s ease-out both; animation-delay: var(--d, 0ms); }
+
+@media (prefers-reduced-motion: reduce) {
+  .reveal, .enter-up, .enter-scale { animation: none; transition: none; opacity: 1; transform: none; }
+}
+
+/* Navbar glass background once the page is scrolled (set by Navbar.astro) */
+#site-header[data-scrolled="true"] {
+  background-color: rgba(7, 10, 17, 0.82);
+  backdrop-filter: blur(16px);
+  -webkit-backdrop-filter: blur(16px);
+  border-bottom: 1px solid rgba(255, 255, 255, 0.07);
+}

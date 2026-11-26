@@ -1,6 +1,6 @@
 # 🚀 Personal Portfolio
 
-A modern, responsive portfolio website built with Next.js and TypeScript to showcase my experience, projects, education, certifications, and technical expertise.
+A modern, responsive portfolio website built with Astro and TypeScript to showcase my experience, projects, education, certifications, and technical expertise.
 
 ## 🌐 Live Demo
 
@@ -21,7 +21,7 @@ https://abdullahshishir.dpdns.org
 - Certifications showcase
 - Projects portfolio
 - Contact section
-- SEO-friendly Next.js App Router architecture
+- SEO-friendly, mostly-static Astro architecture with zero framework runtime
 - TypeScript support
 
 ---
@@ -29,8 +29,8 @@ https://abdullahshishir.dpdns.org
 ## 🛠 Tech Stack
 
 ### Frontend
-- Next.js 14+
-- React
+- Astro 5
+- Vanilla JS for interactivity (no React)
 - TypeScript
 - Tailwind CSS
 - CSS Modules / Global CSS
@@ -140,24 +140,18 @@ or
 npm run dev
 ```
 
-Open:
-
-```text
-http://localhost:3000
-```
+Open the URL printed in the terminal (Astro's default is `http://localhost:4321`).
 
 ---
 
 ## 🔧 Environment Variables
 
-Create a `.env.local` file:
+Create a `.env` file (see `.env.example`):
 
 ```env
-# Example
-NEXT_PUBLIC_SITE_URL=http://localhost:3000
+MAILGUN_API_KEY=
+MAILGUN_DOMAIN=
 ```
-
-Refer to `.env.example` for all required variables.
 
 ---
 
@@ -177,7 +171,7 @@ pnpm start
 
 ## 📈 Performance
 
-- Server-side rendering with Next.js
+- Statically prerendered pages with Astro, shipping only a few KB of vanilla JS
 - Optimized images
 - SEO-friendly metadata
 - Fast page loads

@@ -1,0 +1,87 @@
+---
+import { CodeXml as Code2, Monitor, Server, Database, Wrench, Cpu, Layers } from '@lucide/astro';
+import { skillCategories } from '../data/skills';
+
+const icons: Record<string, typeof Code2> = { Code2, Monitor, Server, Database, Wrench, Cpu };
+
+const filters = [
+  { key: 'all', label: 'All Stacks' },
+  { key: 'backend', label: 'Backend & DB' },
+  { key: 'frontend', label: 'Frontend' },
+];
+---
+
+<section id="expertise" class="py-14 md:py-24 border-b border-white/[0.08] relative">
+  <div class="max-w-7xl mx-auto px-6">
+    <div class="flex flex-col md:flex-row md:items-end justify-between gap-6 mb-8 md:mb-12">
+      <div class="max-w-xl space-y-2">
+        <div class="text-xs font-mono uppercase tracking-wider text-blue-400 font-semibold">Technical Matrix &amp; Systems</div>
+        <h2 class="text-2xl sm:text-3xl font-extrabold text-white tracking-tight">Architecture &amp; Core Stacks</h2>
+        <p class="text-sm text-slate-300 leading-relaxed font-normal">
+          A breakdown of the programming languages, backend frameworks, databases, and engineering workflows I leverage in production.
+        </p>
+      </div>
+
+      <div id="expertise-filters" class="flex w-full md:w-auto items-center gap-1.5 p-1 bg-white/[0.04] border border-white/[0.08] rounded-lg md:shrink-0 overflow-x-auto hide-scrollbar">
+        {filters.map((f, i) => (
+          <button
+            data-filter={f.key}
+            data-active={i === 0 ? 'true' : 'false'}
+            class="flex-1 md:flex-none text-center px-3 py-2 md:py-1.5 rounded-md text-xs font-semibold whitespace-nowrap transition-colors cursor-pointer text-slate-300 hover:text-white hover:bg-white/[0.05] data-[active=true]:bg-blue-600 data-[active=true]:text-white data-[active=true]:shadow-sm"
+          >
+            {f.label}
+          </button>
+        ))}
+      </div>
+    </div>
+
+    <div id="expertise-grid" class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
+      {skillCategories.map((cat, idx) => {
+        const Icon = icons[cat.icon] ?? Layers;
+        return (
+          <div
+            data-title={cat.title.toLowerCase()}
+            class="reveal p-6 rounded-xl surface-card surface-card-hover border border-white/[0.08] flex flex-col justify-between"
+            style={`--d: ${idx * 80}ms`}
+          >
+            <div>
+              <div class="flex items-center gap-3 mb-3">
+                <div class="w-9 h-9 rounded-lg bg-blue-600/10 border border-blue-500/20 flex items-center justify-center shrink-0">
+                  <Icon class="w-5 h-5 text-blue-400" />
+                </div>
+                <h3 class="text-base font-bold text-white tracking-tight">{cat.title}</h3>
+              </div>
+
+              <p class="text-xs text-slate-300 mb-6 leading-relaxed">{cat.description}</p>
+
+              <div class="space-y-2 border-t border-white/[0.06] pt-4">
+                {cat.skills.map((skill) => (
+                  <div class="flex items-center justify-between text-xs py-1">
+                    <span class="font-medium text-slate-200">{skill.name}</span>
+                    <span class="font-mono text-[11px] text-slate-400">{skill.level}</span>
+                  </div>
+                ))}
+              </div>
+            </div>
+          </div>
+        );
+      })}
+    </div>
+  </div>
+</section>
+
+<script>
+  const buttons = document.querySelectorAll<HTMLButtonElement>('#expertise-filters [data-filter]');
+  const cards = document.querySelectorAll<HTMLElement>('#expertise-grid [data-title]');
+
+  buttons.forEach((btn) =>
+    btn.addEventListener('click', () => {
+      const key = btn.dataset.filter!;
+      buttons.forEach((b) => (b.dataset.active = String(b === btn)));
+      cards.forEach((card) => {
+        const show = key === 'all' || card.dataset.title!.includes(key);
+        card.hidden = !show;
+      });
+    }),
+  );
+</script>
